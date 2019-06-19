@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAlerts } from '../actions'
+import { getAlerts } from "../actions";
 
 // Components
 import WeatherAlerts from "../components/WeatherAlerts";
@@ -15,16 +15,13 @@ class WeatherViewContainer extends Component {
     return (
       <div className="weather-container">
         <h2>Weather App incoming</h2>
-        <WeatherAlerts />
+        {/* <WeatherAlerts /> */}
       </div>
     );
   }
 }
 
-
 export default connect(
-null, { getAlerts }
-
-)(WeatherAlerts)
-
-export default WeatherViewContainer;
+  null,
+  { getAlerts }
+)(WeatherViewContainer);
