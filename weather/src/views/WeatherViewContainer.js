@@ -15,13 +15,26 @@ class WeatherViewContainer extends Component {
     return (
       <div className="weather-container">
         <h2>Weather App incoming</h2>
-        {/* <WeatherAlerts /> */}
+        {this.props.alerts.map(alert => {
+          console.log("WVC map alert", alert);
+          return <WeatherAlerts alert={alert} key={alert.id} />;
+        })}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  console.log("WVC mapStateToProps state", state);
+  return {
+    alerts: state.alerts,
+    fetching: state.fetching
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { getAlerts }
 )(WeatherViewContainer);
+
+// headline, event, description, effective (moment) ends (moment)

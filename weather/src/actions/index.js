@@ -17,11 +17,14 @@ export const getAlerts = () => dispatch => {
   axios
     .get(`https://api.weather.gov/alerts`)
     .then(response => {
-      console.log("getAlerts response.data", response.data);
+      console.log("getAlerts response.data.features", response.data);
       dispatch({ type: FETCH_ALERT_SUCCESS, payload: response.data.features });
     })
     .catch(error => {
       console.log("getAlerts error", error);
-      dispatch({ type: FETCH_ALERT_ERROR });
+      dispatch({
+        type: FETCH_ALERT_ERROR,
+        payload: "You have an error, check error object"
+      });
     });
 };
